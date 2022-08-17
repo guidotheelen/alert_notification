@@ -31,6 +31,9 @@ class AlertNotification extends StatelessWidget {
   /// The border color of the notification.
   final Color? borderColor;
 
+  /// The color of the icon.
+  final Color? iconColor;
+
   /// The width of the notification border.
   final double borderWidth;
 
@@ -56,6 +59,7 @@ class AlertNotification extends StatelessWidget {
     this.borderColor,
     this.titleColor,
     this.bodyColor,
+    this.iconColor,
     this.titleFontSize = 16,
     this.bodyFontSize = 14,
     this.spacing = 12,
@@ -67,7 +71,6 @@ class AlertNotification extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisSize: MainAxisSize.max,
       children: [
         Expanded(
           child: Container(
@@ -87,13 +90,13 @@ class AlertNotification extends StatelessWidget {
                 if (showLeadingStroke)
                   Container(
                     width: spacing,
-                    height: 70,
+                    height: 65,
                     color: borderColor ?? type.elementColor,
                   ),
                 SizedBox(width: spacing),
                 Icon(
                   type.icon,
-                  color: type.elementColor,
+                  color: iconColor ?? type.elementColor,
                 ),
                 SizedBox(width: spacing),
                 Column(

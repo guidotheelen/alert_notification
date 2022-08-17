@@ -43,4 +43,4 @@ AlertNotification.outlined(
 
 ## Additional information
 
-For issues or feature requests please file an issue on the Github page.
+The Notification will take all available horizontal space.
