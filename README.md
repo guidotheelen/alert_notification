@@ -33,6 +33,12 @@ AlertNotification(
     body: 'You should know this.',
     type: AlertNotificationType.info,
 ),
+
+AlertNotification.outlined(
+    title: 'Info',
+    body: 'You should know this.',
+    type: AlertNotificationType.info,
+),
 ```
 
 ## Additional information
