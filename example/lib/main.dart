@@ -31,36 +31,72 @@ class MyHomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text(title),
       ),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
-              AlertNotification(
-                title: 'Info',
-                body: 'You should know this.',
-                type: AlertNotificationType.info,
-              ),
-              SizedBox(height: 16),
-              AlertNotification(
-                title: 'Success',
-                body: 'All good!',
-                type: AlertNotificationType.success,
-              ),
-              SizedBox(height: 16),
-              AlertNotification(
-                title: 'Warning',
-                body: 'You should probably worry about this.',
-                type: AlertNotificationType.warning,
-              ),
-              SizedBox(height: 16),
-              AlertNotification(
-                title: 'Error',
-                body: 'Something is wrong!',
-                type: AlertNotificationType.error,
-              ),
-            ],
+      body: SingleChildScrollView(
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text(
+                  'Default notification',
+                  style: TextStyle(fontSize: 25),
+                ),
+                const SizedBox(height: 16),
+                const AlertNotification(
+                  title: 'Info',
+                  body: 'You should know this.',
+                  type: AlertNotificationType.info,
+                ),
+                const SizedBox(height: 16),
+                const AlertNotification(
+                  title: 'Success',
+                  body: 'All good!',
+                  type: AlertNotificationType.success,
+                ),
+                const SizedBox(height: 16),
+                const AlertNotification(
+                  title: 'Warning',
+                  body: 'You should probably worry about this.',
+                  type: AlertNotificationType.warning,
+                ),
+                const SizedBox(height: 16),
+                const AlertNotification(
+                  title: 'Error',
+                  body: 'Something is wrong!',
+                  type: AlertNotificationType.error,
+                ),
+                const SizedBox(height: 16),
+                const Text(
+                  'Outlined notification',
+                  style: TextStyle(fontSize: 25),
+                ),
+                const SizedBox(height: 16),
+                AlertNotification.outlined(
+                  title: 'Info',
+                  body: 'You should know this.',
+                  type: AlertNotificationType.info,
+                ),
+                const SizedBox(height: 16),
+                AlertNotification.outlined(
+                  title: 'Success',
+                  body: 'All good!',
+                  type: AlertNotificationType.success,
+                ),
+                const SizedBox(height: 16),
+                AlertNotification.outlined(
+                  title: 'Warning',
+                  body: 'You should probably worry about this.',
+                  type: AlertNotificationType.warning,
+                ),
+                const SizedBox(height: 16),
+                AlertNotification.outlined(
+                  title: 'Error',
+                  body: 'Something is wrong!',
+                  type: AlertNotificationType.error,
+                ),
+              ],
+            ),
           ),
         ),
       ),

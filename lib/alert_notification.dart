@@ -7,14 +7,44 @@ class AlertNotification extends StatelessWidget {
   /// The title of the notification.
   final String title;
 
+  /// Font size of the title.
+  final double titleFontSize;
+
   /// The body of the notification.
   final String body;
+
+  /// Font size of the body.
+  final double bodyFontSize;
 
   /// The type of the notification.
   final AlertNotificationType type;
 
+  /// Spacing between elements
+  final double spacing;
+
+  /// The radius of the notification edges.
+  final BorderRadius radius;
+
+  /// The background color of the notification.
+  final Color? backgroundColor;
+
+  /// The border color of the notification.
+  final Color? borderColor;
+
+  /// The width of the notification border.
+  final double borderWidth;
+
+  /// Color of the title text.
+  final Color? titleColor;
+
+  /// Color of the body text.
+  final Color? bodyColor;
+
   /// Callback for when the notification is dismissed.
   final VoidCallback? onDismiss;
+
+  /// Show leading thick line.
+  final bool showLeadingStroke;
 
   const AlertNotification({
     super.key,
@@ -22,6 +52,16 @@ class AlertNotification extends StatelessWidget {
     required this.body,
     required this.type,
     this.onDismiss,
+    this.backgroundColor,
+    this.borderColor,
+    this.titleColor,
+    this.bodyColor,
+    this.titleFontSize = 16,
+    this.bodyFontSize = 14,
+    this.spacing = 12,
+    this.radius = const BorderRadius.all(Radius.circular(5)),
+    this.borderWidth = 1,
+    this.showLeadingStroke = false,
   });
 
   @override
@@ -31,41 +71,52 @@ class AlertNotification extends StatelessWidget {
       children: [
         Expanded(
           child: Container(
-            padding: const EdgeInsets.all(12),
+            padding: EdgeInsets.only(
+              right: spacing,
+            ),
             decoration: BoxDecoration(
-              color: type.backgroundColor,
-              borderRadius: BorderRadius.circular(5),
+              color: backgroundColor ?? type.backgroundColor,
+              borderRadius: radius,
               border: Border.all(
-                color: type.elementColor,
-                width: 1,
+                color: borderColor ?? type.elementColor,
+                width: borderWidth,
               ),
             ),
             child: Row(
               children: [
+                if (showLeadingStroke)
+                  Container(
+                    width: spacing,
+                    height: 70,
+                    color: borderColor ?? type.elementColor,
+                  ),
+                SizedBox(width: spacing),
                 Icon(
                   type.icon,
                   color: type.elementColor,
                 ),
-                const SizedBox(width: 12),
+                SizedBox(width: spacing),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    SizedBox(height: spacing),
                     Text(
                       title,
                       style: TextStyle(
-                        fontSize: 16,
+                        fontSize: titleFontSize,
                         fontWeight: FontWeight.bold,
-                        color: type.elementColor,
+                        color: titleColor ?? type.elementColor,
                       ),
                     ),
-                    const SizedBox(height: 5),
+                    SizedBox(height: spacing / 2),
                     Text(
                       body,
                       style: TextStyle(
-                        fontSize: 14,
-                        color: type.elementColor,
+                        fontSize: bodyFontSize,
+                        color: bodyColor ?? type.elementColor,
                       ),
                     ),
+                    SizedBox(height: spacing),
                   ],
                 ),
               ],
@@ -73,6 +124,41 @@ class AlertNotification extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+
+  /// Outlined notification.
+  factory AlertNotification.outlined({
+    required String title,
+    required String body,
+    required AlertNotificationType type,
+    Color? backgroundColor,
+    Color? borderColor,
+    Color? titleColor,
+    Color? bodyColor,
+    double titleFontSize = 16,
+    double bodyFontSize = 14,
+    double spacing = 12,
+    BorderRadius radius = const BorderRadius.all(Radius.circular(5)),
+    double borderWidth = 1,
+    VoidCallback? onDismiss,
+    bool showLeadingStroke = true,
+  }) {
+    return AlertNotification(
+      title: title,
+      body: body,
+      type: type,
+      backgroundColor: Colors.white,
+      borderColor: borderColor,
+      titleColor: titleColor,
+      bodyColor: bodyColor,
+      titleFontSize: titleFontSize,
+      bodyFontSize: bodyFontSize,
+      spacing: spacing,
+      radius: radius,
+      borderWidth: borderWidth,
+      onDismiss: onDismiss,
+      showLeadingStroke: showLeadingStroke,
     );
   }
 }
