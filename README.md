@@ -13,10 +13,8 @@ notified of.
 
 ## Features
 
-* Title
-* Subtitle
-* Background Color
-* Border and text color
+* Fully customizable notification
+* Outlined version
 
 ## Upcoming Features
 
