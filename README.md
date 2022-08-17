@@ -3,6 +3,8 @@
 This package shows a simple alert for all the information your user should be
 notified of.
 
+![Alert Notification](images/notify1.png)
+
 ## Features
 
 * Title
