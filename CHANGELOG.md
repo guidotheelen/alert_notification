@@ -5,3 +5,7 @@
 ## 0.0.2
 
 * Example image
+
+## 0.0.3
+
+* Outlined notification
