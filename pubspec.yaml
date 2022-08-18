@@ -1,6 +1,6 @@
 name: alert_notification
 description: A simple alert for all the information your user should be notified of.
-version: 0.0.3
+version: 0.0.4
 homepage: https://github.com/guidotheelen/alert_notification
 
 environment:

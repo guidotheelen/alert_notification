@@ -9,3 +9,7 @@
 ## 0.0.3
 
 * Outlined notification
+
+## 0.0.4
+
+* Outlined icon color
