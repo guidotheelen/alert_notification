@@ -13,3 +13,7 @@
 ## 0.0.4
 
 * Outlined icon color
+
+## 0.0.5
+
+* Default height

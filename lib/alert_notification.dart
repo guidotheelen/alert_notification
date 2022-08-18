@@ -19,6 +19,9 @@ class AlertNotification extends StatelessWidget {
   /// The type of the notification.
   final AlertNotificationType type;
 
+  /// Height of the entire notification.
+  final double? height;
+
   /// Spacing between elements
   final double spacing;
 
@@ -54,6 +57,7 @@ class AlertNotification extends StatelessWidget {
     required this.title,
     required this.body,
     required this.type,
+    this.height = 70,
     this.onDismiss,
     this.backgroundColor,
     this.borderColor,
@@ -74,6 +78,7 @@ class AlertNotification extends StatelessWidget {
       children: [
         Expanded(
           child: Container(
+            height: height,
             padding: EdgeInsets.only(
               right: spacing,
             ),
@@ -86,11 +91,11 @@ class AlertNotification extends StatelessWidget {
               ),
             ),
             child: Row(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 if (showLeadingStroke)
                   Container(
                     width: spacing,
-                    height: 65,
                     color: borderColor ?? type.elementColor,
                   ),
                 SizedBox(width: spacing),
@@ -100,9 +105,9 @@ class AlertNotification extends StatelessWidget {
                 ),
                 SizedBox(width: spacing),
                 Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SizedBox(height: spacing),
                     Text(
                       title,
                       style: TextStyle(
@@ -119,7 +124,6 @@ class AlertNotification extends StatelessWidget {
                         color: bodyColor ?? type.elementColor,
                       ),
                     ),
-                    SizedBox(height: spacing),
                   ],
                 ),
               ],
@@ -140,6 +144,7 @@ class AlertNotification extends StatelessWidget {
     Color? titleColor,
     Color? bodyColor,
     Color? iconColor,
+    double height = 70,
     double titleFontSize = 16,
     double bodyFontSize = 14,
     double spacing = 12,
@@ -152,6 +157,7 @@ class AlertNotification extends StatelessWidget {
       title: title,
       body: body,
       type: type,
+      height: height,
       backgroundColor: Colors.white,
       borderColor: borderColor,
       titleColor: titleColor,
